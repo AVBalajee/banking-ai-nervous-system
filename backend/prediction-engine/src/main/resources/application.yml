@@ -1,0 +1,25 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: prediction-engine
+  datasource:
+    url: ${SPRING_DATASOURCE_URL:jdbc:postgresql://localhost:5432/nervous_system}
+    username: ${SPRING_DATASOURCE_USERNAME:bank_admin}
+    password: ${SPRING_DATASOURCE_PASSWORD:bank_admin_pw}
+  jpa:
+    hibernate:
+      ddl-auto: update
+  kafka:
+    bootstrap-servers: ${SPRING_KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+
+ai:
+  engine:
+    url: ${AI_ENGINE_URL:http://localhost:8500}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
